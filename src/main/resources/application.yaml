@@ -1,0 +1,19 @@
+server:
+ port: 8091
+ application:
+  name: service-kotlin-template
+endpoints:
+  prometheus:
+    enabled: true
+management:
+ endpoints:
+  web:
+   exposure:
+    include: "*"
+springdoc:
+ swagger-ui.path: "/api/v1/service-template/swagger-ui-custom.html"
+azure:
+ cosmosdb:
+  uri: https://wingtiptoysdatademo.documents.azure.com:443/
+  key: Ywa1CmXinkuPRAFBeYcjyQV5FqxIbDx5mJ2IOBMT1z0XHkoP509i81e3qsfewYHER9ofP1up2u8n0Zh53MAkrw==
+  database: wingtiptoysdatademo

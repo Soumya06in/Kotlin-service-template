@@ -1,0 +1,29 @@
+trigger:
+  - master
+  - feature/*
+#put your variabe names
+variables:
+  technology: 'springboot'
+  sonaranaysis: 'false'
+resources:
+  repositories:
+    - repository: Templates
+      type: git
+      name: Templates
+
+stages:
+  - stage: javabuild
+    displayName: javabuild
+    jobs:
+      - template: javabuild.yaml@Templates
+    condition: eq('${{ variables.technology }}', 'java')
+  - stage: dotnetbuild
+    displayName: dotnetbuild
+    jobs:
+      - template: dotnetbuild.yaml@Templates
+    condition: eq('${{ variables.technology }}', 'dotnet')
+  - stage: springbootbuild
+    displayName: springbootbuild
+    jobs:
+      - template: springbootbuild.yaml@Templates
+    condition: eq('${{ variables.technology }}', 'springboot')
